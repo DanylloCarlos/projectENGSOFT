@@ -1,0 +1,16 @@
+#Tabela de usuário
+CREATE TABLE usr
+(
+	userID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	firstName varchar(255) NOT NULL,
+	surname varchar(255) NOT NULL,
+	email  varchar(255) NOT NULL ,
+	password varchar (255) NOT NULL,
+	userlevel int NOT NULL,
+	address varchar(255),
+	phone varchar(255),
+	cellphone varchar(255),
+	registerDate timestamp 
+)
+
+
