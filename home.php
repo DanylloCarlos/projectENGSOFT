@@ -72,19 +72,19 @@ and open the template in the editor.
                                     <input class="form-control" name="password" placeholder="Senha" type="text">
                                 </div>
                                 <div style="margin-left: 35px;">
-                                    <a href="#" target="_blank">Cadastre-se </a>
+                                    <a href="signUp.php" target="_blank">Cadastre-se </a>
                                     <a href="#" target="_blank">&nbsp; Esqueceu a senha?</a>
                                 </div>    
                                 <button class="btn btn-default pull-right" type="submit">Sign In</button>
                             </form>
-                        </div>          
+                        </div>           
                    <!-- <li><a href="../navbar/">Default</a></li>
                     <li><a href="../navbar-static-top/">Static top</a></li>
                     <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li> -->
                   </ul>
                 </div><!--/.nav-collapse -->
               </div>
-            </nav>
+            </nav> 
             
             
             <div class="container-fluid" style="margin-top: 180px;">

@@ -8,10 +8,10 @@ and open the template in the editor.
     Author     : levimmartins
 */
 
-body {
+body { 
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #69f0ae;
+  background-color: #f3b558;
 }
 
 .form-signUp{
@@ -36,5 +36,5 @@ body {
   z-index: 2;
 }
 .container{
-    background-color:#69f0ae;
+    background-color:#f3b558;
 }

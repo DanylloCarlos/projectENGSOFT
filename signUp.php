@@ -34,9 +34,9 @@ and open the template in the editor.
                         <input type="password" class="form-control" name="password" placeholder="Digite uma senha" required>                          
                         
                         </br>                           
-                        <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastre-se</button>                                                       
+                        <button class="btn btn-lg btn-default btn-block" type="submit">Cadastre-se</button>                                                       
                 </form><!-- form-signUp -->   
     </div> <!-- /container --> 
   </body>
-</html>
+</html> 
 
