@@ -1,0 +1,47 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 9, 2017, 11:53:23 PM
+    Author     : levimmartins
+*/
+
+
+.loginNav  {
+    width: 279px;
+    height: 139px;
+    background-color: white;
+    border:1px solid #e7e7e7;
+    margin-right: 12px;
+    margin-left: 9px;
+    box-shadow: 2px 2px 1px #988a8a;
+    
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #eca006;
+}
+
+
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color:#f06a15;
+    
+}
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+    color: #f06a15;   
+}
+
+.navbar-default .navbar-brand {
+    color: #fea406;
+}
+
+ .labelOrange {  
+    color: #f6ab28;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: transparent;
+}
