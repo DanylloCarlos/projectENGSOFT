@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Empresa` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
+   
 
 -- -----------------------------------------------------
 -- Table `ADOTAPETDB`.`Contato`
