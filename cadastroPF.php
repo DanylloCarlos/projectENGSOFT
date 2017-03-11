@@ -50,7 +50,7 @@
   
   $stmt = mysqli_prepare($conn, $SQL_Insert);
   // 's' = string 'i' = integer. Pareamento de ? com valores recebidos do form e de consultas query.
-  mysqli_stmt_bind_param($stmt, 'siisii', $nome, $cpf, $rg, $senha, $idAdotante, $IdEndereco);  
+  mysqli_stmt_bind_param($stmt, 'isisii', $cpf, $nome, $rg, $senha, $idAdotante, $IdEndereco);  
   $result = mysqli_stmt_execute($stmt);
   
   if($result){
