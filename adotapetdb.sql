@@ -71,14 +71,15 @@ ENGINE = InnoDB;
 -- Table `ADOTAPETDB`.`Pessoa`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Pessoa` (
-  `CPF` INT(11) NOT NULL,
+  `idPessoa` INT(11) NOT NULL AUTO_INCREMENT,
+  `CPF` VARCHAR(60) NOT NULL,
   `Nome` VARCHAR(20) NULL,
-  `RG` INT(12) NULL,
+  `RG` VARCHAR(60) NULL,
   `Idade` INT(2) NULL,
   `Senha` VARCHAR(100) NOT NULL,
   `Adotante_idAdotante` INT NOT NULL,
   `Endereco_idEndereco` INT NOT NULL,
-  PRIMARY KEY (`CPF`, `Adotante_idAdotante`, `Endereco_idEndereco`),
+  PRIMARY KEY (`idPessoa`, `Adotante_idAdotante`, `Endereco_idEndereco`),
   INDEX `fk_Pessoa_Adotante1_idx` (`Adotante_idAdotante` ASC),
   INDEX `fk_Pessoa_Endereco1_idx` (`Endereco_idEndereco` ASC),
   CONSTRAINT `fk_Pessoa_Adotante1`
@@ -126,24 +127,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Contato` (
   `idContato` INT NOT NULL AUTO_INCREMENT,
   `Telefone` INT(10) NULL,
-  `E-mail` VARCHAR(45) NULL,
-  `Empresa_CNPJ` INT(14) NOT NULL,
-  `Empresa_Adotante_idAdotante` INT NOT NULL,
-  `Pessoa_CPF` INT(11) NOT NULL,
-  `Pessoa_Adotante_idAdotante` INT NOT NULL,
-  PRIMARY KEY (`idContato`, `Empresa_CNPJ`, `Empresa_Adotante_idAdotante`, `Pessoa_CPF`, `Pessoa_Adotante_idAdotante`),
-  INDEX `fk_Contato_Empresa1_idx` (`Empresa_CNPJ` ASC, `Empresa_Adotante_idAdotante` ASC),
-  INDEX `fk_Contato_Pessoa1_idx` (`Pessoa_CPF` ASC, `Pessoa_Adotante_idAdotante` ASC),
-  CONSTRAINT `fk_Contato_Empresa1`
-    FOREIGN KEY (`Empresa_CNPJ` , `Empresa_Adotante_idAdotante`)
-    REFERENCES `ADOTAPETDB`.`Empresa` (`CNPJ` , `Adotante_idAdotante`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Contato_Pessoa1`
-    FOREIGN KEY (`Pessoa_CPF` , `Pessoa_Adotante_idAdotante`)
-    REFERENCES `ADOTAPETDB`.`Pessoa` (`CPF` , `Adotante_idAdotante`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `E-mail` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idContato`))
 ENGINE = InnoDB;
 
 
