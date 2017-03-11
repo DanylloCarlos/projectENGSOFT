@@ -20,16 +20,15 @@ and open the template in the editor.
   <body>
     <div class="container">        
                 <form class="form-signUp" >
-                    <h1 class="form-signUp-heading">Cadastre-se</h1>                         
-                        <label> Primeiro Nome:</label>
-                        <input type="text" class="form-control" name="firstname" placeholder="Digite seu primeiro nome" required>                                          
-                        
-                        <label> Sobrenome:</label>
-                        <input type="text" class="form-control" name="surname" placeholder="Digite  seu sobrenome" required>                                            
-                        
+                    <h1 class="form-signUp-heading">Cadastre-se como Pessoa Jurídica</h1>                         
+                        <label> Razão Social:</label>
+                        <input type="text" class="form-control" name="Razão Social" placeholder="Digite a Razão Social" required>                                          
+                        <label> CNPJ:</label>
+                        <input type="number" class="form-control" name="cnpj" placeholder="Digite seu cnpj" required>
+                        <label> Nome Fantasia:</label>
+                        <input type="text" class="form-control" name="Nome Fantasia" placeholder="Digite o nome Fantasia" required>
                         <label> Email:</label>
-                        <input type="email" class="form-control" name="email" placeholder="Digite seu Email" required>                        
-                        
+                        <input type="email" class="form-control" name="email" placeholder="Digite seu Email" required>                                               
                         <label> Senha:</label>
                         <input type="password" class="form-control" name="password" placeholder="Digite uma senha" required>                          
                         

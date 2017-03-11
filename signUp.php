@@ -19,21 +19,24 @@ and open the template in the editor.
 
   <body>
     <div class="container">        
-                <form class="form-signUp" >
+                <form class="form-signUp" name="cadastroPessoaFisica" action="cadastroPF.php" method="post">
                     <h1 class="form-signUp-heading">Cadastre-se</h1>                         
-                        <label> Primeiro Nome:</label>
-                        <input type="text" class="form-control" name="firstname" placeholder="Digite seu primeiro nome" required>                                          
-                        
-                        <label> Sobrenome:</label>
-                        <input type="text" class="form-control" name="surname" placeholder="Digite  seu sobrenome" required>                                            
-                        
+                        <label> Nome Completo:</label>
+                        <!-- O campo name será usado como identificador de cada campo de entrada. E será 
+                             recebido por um variável por meio do $_POST['aqui o nome do identificador']-->
+                        <input type="text" class="form-control" name="nome" placeholder="Digite seu nome completo" required>                                          
+                        <label> CPF:</label>
+                        <input type="number" class="form-control" name="cpf" placeholder="Digite seu cpf" required>
+                        <label> RG:</label>
+                        <input type="number" class="form-control" name="rg" placeholder="Digite seu rg" required>
                         <label> Email:</label>
-                        <input type="email" class="form-control" name="email" placeholder="Digite seu Email" required>                        
-                        
+                        <input type="email" class="form-control" name="email" placeholder="Digite seu Email" required>                                               
                         <label> Senha:</label>
-                        <input type="password" class="form-control" name="password" placeholder="Digite uma senha" required>                          
+                        <input type="password" class="form-control" name="senha" placeholder="Digite uma senha" required>                          
+                       
+                        </br>      
+                        <a href="signUpEmp.php">Cadastre-se como Pessoa Jurídica. (Para ONGs e outras instituições)</a> 
                         
-                        </br>                           
                         <button class="btn btn-lg btn-default btn-block" type="submit">Cadastre-se</button>                                                       
                 </form><!-- form-signUp -->   
     </div> <!-- /container --> 
