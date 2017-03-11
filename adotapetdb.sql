@@ -33,8 +33,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`PET` (
   `idPET` INT NOT NULL AUTO_INCREMENT,
   `Nome ou Apelido` VARCHAR(12) NULL,
-  `Espécie` VARCHAR(10) NULL,
-  `Raça` VARCHAR(16) NULL,
+  `Especie` VARCHAR(10) NULL,
+  `Raca` VARCHAR(16) NULL,
   `Sexo` VARCHAR(6) NULL,
   `Porte` VARCHAR(8) NULL,
   `Idade Estimada` INT NULL,
@@ -53,17 +53,17 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `ADOTAPETDB`.`Endereço`
+-- Table `ADOTAPETDB`.`Endereco`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Endereço` (
-  `idEndereço` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Endereco` (
+  `idEndereco` INT NOT NULL AUTO_INCREMENT,
   `CEP` INT(8) NULL,
   `Rua` VARCHAR(45) NULL,
-  `Número` INT(3) NULL,
+  `Numero` INT(3) NULL,
   `Cidade` VARCHAR(20) NULL,
   `Estado` VARCHAR(20) NULL,
-  `País` VARCHAR(15) NULL,
-  PRIMARY KEY (`idEndereço`))
+  `Pais`VARCHAR(15) NULL,
+  PRIMARY KEY (`idEndereco`))
 ENGINE = InnoDB;
 
 
@@ -77,18 +77,18 @@ CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Pessoa` (
   `Idade` INT(2) NULL,
   `Senha` VARCHAR(100) NOT NULL,
   `Adotante_idAdotante` INT NOT NULL,
-  `Endereço_idEndereço` INT NOT NULL,
-  PRIMARY KEY (`CPF`, `Adotante_idAdotante`, `Endereço_idEndereço`),
+  `Endereco_idEndereco` INT NOT NULL,
+  PRIMARY KEY (`CPF`, `Adotante_idAdotante`, `Endereco_idEndereco`),
   INDEX `fk_Pessoa_Adotante1_idx` (`Adotante_idAdotante` ASC),
-  INDEX `fk_Pessoa_Endereço1_idx` (`Endereço_idEndereço` ASC),
+  INDEX `fk_Pessoa_Endereco1_idx` (`Endereco_idEndereco` ASC),
   CONSTRAINT `fk_Pessoa_Adotante1`
     FOREIGN KEY (`Adotante_idAdotante`)
     REFERENCES `ADOTAPETDB`.`Adotante` (`idAdotante`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Pessoa_Endereço1`
-    FOREIGN KEY (`Endereço_idEndereço`)
-    REFERENCES `ADOTAPETDB`.`Endereço` (`idEndereço`)
+  CONSTRAINT `fk_Pessoa_Endereco1`
+    FOREIGN KEY (`Endereco_idEndereco`)
+    REFERENCES `ADOTAPETDB`.`Endereco` (`idEndereco`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -99,22 +99,22 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Empresa` (
   `CNPJ` INT(14) NOT NULL,
-  `Razão Social` VARCHAR(45) NULL,
+  `Razao Social` VARCHAR(45) NULL,
   `Nome Fantasia` VARCHAR(45) NULL,
   `Senha` VARCHAR(100) NOT NULL,
   `Adotante_idAdotante` INT NOT NULL,
-  `Endereço_idEndereço` INT NOT NULL,
-  PRIMARY KEY (`CNPJ`, `Adotante_idAdotante`, `Endereço_idEndereço`),
+  `Endereco_idEndereco` INT NOT NULL,
+  PRIMARY KEY (`CNPJ`, `Adotante_idAdotante`, `Endereco_idEndereco`),
   INDEX `fk_Empresa_Adotante1_idx` (`Adotante_idAdotante` ASC),
-  INDEX `fk_Empresa_Endereço1_idx` (`Endereço_idEndereço` ASC),
+  INDEX `fk_Empresa_Endereco1_idx` (`Endereco_idEndereco` ASC),
   CONSTRAINT `fk_Empresa_Adotante1`
     FOREIGN KEY (`Adotante_idAdotante`)
     REFERENCES `ADOTAPETDB`.`Adotante` (`idAdotante`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Empresa_Endereço1`
-    FOREIGN KEY (`Endereço_idEndereço`)
-    REFERENCES `ADOTAPETDB`.`Endereço` (`idEndereço`)
+  CONSTRAINT `fk_Empresa_Endereco1`
+    FOREIGN KEY (`Endereco_idEndereco`)
+    REFERENCES `ADOTAPETDB`.`Endereco` (`idEndereco`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
