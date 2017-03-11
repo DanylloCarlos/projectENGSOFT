@@ -31,7 +31,7 @@ ENGINE = InnoDB;
 -- Table `ADOTAPETDB`.`PET`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`PET` (
-  `idPET` INT NOT NULL,
+  `idPET` INT NOT NULL AUTO_INCREMENT,
   `Nome ou Apelido` VARCHAR(12) NULL,
   `Espécie` VARCHAR(10) NULL,
   `Raça` VARCHAR(16) NULL,
@@ -56,7 +56,7 @@ ENGINE = InnoDB;
 -- Table `ADOTAPETDB`.`Endereço`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Endereço` (
-  `idEndereço` INT NOT NULL,
+  `idEndereço` INT NOT NULL AUTO_INCREMENT,
   `CEP` INT(8) NULL,
   `Rua` VARCHAR(45) NULL,
   `Número` INT(3) NULL,
@@ -75,6 +75,7 @@ CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Pessoa` (
   `Nome` VARCHAR(20) NULL,
   `RG` INT(12) NULL,
   `Idade` INT(2) NULL,
+  `Senha` VARCHAR(100) NOT NULL,
   `Adotante_idAdotante` INT NOT NULL,
   `Endereço_idEndereço` INT NOT NULL,
   PRIMARY KEY (`CPF`, `Adotante_idAdotante`, `Endereço_idEndereço`),
@@ -100,6 +101,7 @@ CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Empresa` (
   `CNPJ` INT(14) NOT NULL,
   `Razão Social` VARCHAR(45) NULL,
   `Nome Fantasia` VARCHAR(45) NULL,
+  `Senha` VARCHAR(100) NOT NULL,
   `Adotante_idAdotante` INT NOT NULL,
   `Endereço_idEndereço` INT NOT NULL,
   PRIMARY KEY (`CNPJ`, `Adotante_idAdotante`, `Endereço_idEndereço`),
@@ -122,7 +124,7 @@ ENGINE = InnoDB;
 -- Table `ADOTAPETDB`.`Contato`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Contato` (
-  `idContato` INT NOT NULL,
+  `idContato` INT NOT NULL AUTO_INCREMENT,
   `Telefone` INT(10) NULL,
   `E-mail` VARCHAR(45) NULL,
   `Empresa_CNPJ` INT(14) NOT NULL,
