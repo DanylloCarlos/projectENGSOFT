@@ -68,31 +68,16 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `ADOTAPETDB`.`Pessoa`
+-- Table `ADOTAPETDB`.`Contato`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Pessoa` (
-  `idPessoa` INT(11) NOT NULL AUTO_INCREMENT,
-  `CPF` VARCHAR(60) NOT NULL,
-  `Nome` VARCHAR(20) NULL,
-  `RG` VARCHAR(60) NULL,
-  `Idade` INT(2) NULL,
-  `Senha` VARCHAR(100) NOT NULL,
-  `Adotante_idAdotante` INT NOT NULL,
-  `Endereco_idEndereco` INT NOT NULL,
-  PRIMARY KEY (`idPessoa`, `Adotante_idAdotante`, `Endereco_idEndereco`),
-  INDEX `fk_Pessoa_Adotante1_idx` (`Adotante_idAdotante` ASC),
-  INDEX `fk_Pessoa_Endereco1_idx` (`Endereco_idEndereco` ASC),
-  CONSTRAINT `fk_Pessoa_Adotante1`
-    FOREIGN KEY (`Adotante_idAdotante`)
-    REFERENCES `ADOTAPETDB`.`Adotante` (`idAdotante`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Pessoa_Endereco1`
-    FOREIGN KEY (`Endereco_idEndereco`)
-    REFERENCES `ADOTAPETDB`.`Endereco` (`idEndereco`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Contato` (
+  `idContato` INT NOT NULL AUTO_INCREMENT,
+  `Telefone` INT(10) NULL,
+  `Email` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idContato`))
 ENGINE = InnoDB;
+
+
 
 
 -- -----------------------------------------------------
@@ -105,9 +90,11 @@ CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Empresa` (
   `Senha` VARCHAR(100) NOT NULL,
   `Adotante_idAdotante` INT NOT NULL,
   `Endereco_idEndereco` INT NOT NULL,
-  PRIMARY KEY (`CNPJ`, `Adotante_idAdotante`, `Endereco_idEndereco`),
+  `Contato_idContato` INT NOT NULL,
+  PRIMARY KEY (`CNPJ`, `Adotante_idAdotante`, `Endereco_idEndereco`, `Contato_idContato`),
   INDEX `fk_Empresa_Adotante1_idx` (`Adotante_idAdotante` ASC),
   INDEX `fk_Empresa_Endereco1_idx` (`Endereco_idEndereco` ASC),
+  INDEX `fk_Contato_idContato2_idx` (`Contato_idContato` ASC),
   CONSTRAINT `fk_Empresa_Adotante1`
     FOREIGN KEY (`Adotante_idAdotante`)
     REFERENCES `ADOTAPETDB`.`Adotante` (`idAdotante`)
@@ -117,19 +104,55 @@ CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Empresa` (
     FOREIGN KEY (`Endereco_idEndereco`)
     REFERENCES `ADOTAPETDB`.`Endereco` (`idEndereco`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Contato_idContato2`
+    FOREIGN KEY (`Contato_idContato`)
+    REFERENCES `ADOTAPETDB`.`Contato` (`idContato`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION	
+)
 ENGINE = InnoDB;
    
 
+
+
 -- -----------------------------------------------------
--- Table `ADOTAPETDB`.`Contato`
+-- Table `ADOTAPETDB`.`Pessoa`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Contato` (
-  `idContato` INT NOT NULL AUTO_INCREMENT,
-  `Telefone` INT(10) NULL,
-  `E-mail` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idContato`))
+CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Pessoa` (
+  `idPessoa` INT(11) NOT NULL AUTO_INCREMENT,
+  `CPF` VARCHAR(60) NOT NULL,
+  `Nome` VARCHAR(20) NULL,
+  `RG` VARCHAR(60) NULL,
+  `Idade` INT(2) NULL,
+  `Senha` VARCHAR(100) NOT NULL,
+  `Adotante_idAdotante` INT NOT NULL,
+  `Endereco_idEndereco` INT NOT NULL,
+  `Contato_idContato` INT NOT NULL,
+  PRIMARY KEY (`idPessoa`, `Adotante_idAdotante`, `Endereco_idEndereco`, `Contato_idContato`),
+  INDEX `fk_Pessoa_Adotante1_idx` (`Adotante_idAdotante` ASC),
+  INDEX `fk_Pessoa_Endereco1_idx` (`Endereco_idEndereco` ASC),
+  INDEX `fk_Contato_idContato1_idx` (`Contato_idContato` ASC),
+  CONSTRAINT `fk_Pessoa_Adotante1`
+    FOREIGN KEY (`Adotante_idAdotante`)
+    REFERENCES `ADOTAPETDB`.`Adotante` (`idAdotante`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Pessoa_Endereco1`
+    FOREIGN KEY (`Endereco_idEndereco`)
+    REFERENCES `ADOTAPETDB`.`Endereco` (`idEndereco`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Contato_idContato1`
+    FOREIGN KEY (`Contato_idContato`)
+    REFERENCES `ADOTAPETDB`.`Contato` (`idContato`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
+
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
