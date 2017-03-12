@@ -19,14 +19,14 @@ and open the template in the editor.
 
   <body>
     <div class="container">        
-                <form class="form-signUp" >
+                <form class="form-signUp" name="cadastroPessoaJuridica" action="cadastroPJ.php" method="post" >
                     <h1 class="form-signUp-heading">Cadastre-se como Pessoa Jurídica</h1>                         
                         <label> Razão Social:</label>
-                        <input type="text" class="form-control" name="Razão Social" placeholder="Digite a Razão Social" required>                                          
+                        <input type="text" class="form-control" name="razaosocial" placeholder="Digite a Razão Social" required>                                          
                         <label> CNPJ:</label>
-                        <input type="number" class="form-control" name="cnpj" placeholder="Digite seu cnpj" required>
+                        <input type="text" class="form-control" name="cnpj" placeholder="Digite seu cnpj" required>
                         <label> Nome Fantasia:</label>
-                        <input type="text" class="form-control" name="Nome Fantasia" placeholder="Digite o nome Fantasia" required>
+                        <input type="text" class="form-control" name="nomefantasia" placeholder="Digite o nome Fantasia" required>
                         <label> Email:</label>
                         <input type="email" class="form-control" name="email" placeholder="Digite seu Email" required>                                               
                         <label> Senha:</label>
