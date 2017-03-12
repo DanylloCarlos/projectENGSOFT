@@ -44,13 +44,29 @@
       $IdEndereco = $var1;
   }
  
+   //Insere um novo ID na tabela Contato.
+  $cmd2 = "INSERT INTO ADOTAPETDB.Contato(idContato) VALUES(''); ";
+  $resultado2 = mysqli_query($conn, $cmd2);
+  
+   //Pega o ID de Contato registrado 
+  $Select_lastIDContato = " SELECT ADOTAPETDB.Contato.idContato FROM ADOTAPETDB.Contato ORDER BY ADOTAPETDB.Contato.idContato DESC LIMIT 1; " ;
+  $stmt_lastIdContato = mysqli_prepare($conn, $Select_lastIDContato);
+  mysqli_stmt_bind_result($stmt_lastIdContato, $var3); 
+  mysqli_stmt_execute($stmt_lastIdContato);
+  
+  
+  //A variável $IdContato recebe o ultimo id Contato registrado. 
+  while(mysqli_stmt_fetch($stmt_lastIdContato)){
+      $IdContato = $var3;
+  }
+  
   //Criando usuário tipo Pessoa Física.
-  $SQL_Insert  = "INSERT INTO ADOTAPETDB.Pessoa(CPF,Nome, RG, Senha, Adotante_idAdotante, Endereco_idEndereco) "; 
-  $SQL_Insert .= "VALUES ( ?, ?, ?, ?, ?, ? ); ";
+  $SQL_Insert  = "INSERT INTO ADOTAPETDB.Pessoa(CPF,Nome, RG, Senha, Adotante_idAdotante, Endereco_idEndereco, Contato_idContato) "; 
+  $SQL_Insert .= "VALUES ( ?, ?, ?, ?, ?, ?, ? ); ";
   
   $stmt = mysqli_prepare($conn, $SQL_Insert);
   // 's' = string 'i' = integer. Pareamento de ? com valores recebidos do form e de consultas query.
-  mysqli_stmt_bind_param($stmt, 'isisii', $cpf, $nome, $rg, $senha, $idAdotante, $IdEndereco);  
+  mysqli_stmt_bind_param($stmt, 'isisiii', $cpf, $nome, $rg, $senha, $idAdotante, $IdEndereco, $IdContato );  
   $result = mysqli_stmt_execute($stmt);
   
   if($result){
@@ -58,6 +74,16 @@
   }else{
       printf("Houve um problema");
       printf("%s ",mysqli_error($conn));
+  }
+  
+  
+  //Inserindo email
+  $SQL_update = "UPDATE ADOTAPETDB.Contato SET ADOTAPETDB.Contato.Email= '".$email."'  WHERE ADOTAPETDB.Contato.idContato =".$IdContato. " ;"  ;
+  $stmt_update = mysqli_prepare($conn, $SQL_update);
+  if( mysqli_stmt_execute($stmt_update)){
+      
+  }else{
+      printf("%s", mysqli_error($conn));
   }
   
   mysqli_stmt_close($stmt);
