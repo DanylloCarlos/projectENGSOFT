@@ -84,14 +84,15 @@ ENGINE = InnoDB;
 -- Table `ADOTAPETDB`.`Empresa`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`Empresa` (
-  `CNPJ` INT(14) NOT NULL,
-  `Razao Social` VARCHAR(45) NULL,
+  `idEmpresa`INT NOT NULL AUTO_INCREMENT,
+  `CNPJ` VARCHAR(200) NOT NULL,
+  `Razao Social` VARCHAR(100) NULL,
   `Nome Fantasia` VARCHAR(45) NULL,
   `Senha` VARCHAR(100) NOT NULL,
   `Adotante_idAdotante` INT NOT NULL,
   `Endereco_idEndereco` INT NOT NULL,
   `Contato_idContato` INT NOT NULL,
-  PRIMARY KEY (`CNPJ`, `Adotante_idAdotante`, `Endereco_idEndereco`, `Contato_idContato`),
+  PRIMARY KEY (`idEmpresa`, `Adotante_idAdotante`, `Endereco_idEndereco`, `Contato_idContato`),
   INDEX `fk_Empresa_Adotante1_idx` (`Adotante_idAdotante` ASC),
   INDEX `fk_Empresa_Endereco1_idx` (`Endereco_idEndereco` ASC),
   INDEX `fk_Contato_idContato2_idx` (`Contato_idContato` ASC),
