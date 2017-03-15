@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Upload Imagem</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Bootstrap core CSS -->
+         <link href="css/bootstrap.min.css" rel="stylesheet">
+          <link href="css/signUp.css" rel="stylesheet">
+    </head>
+    <body>
+            
+            <div class="container" style="width: -moz-fit-content;">
+                
+                <form  class="form-inline form-signUp" enctype="multipart/form-data" action="upload.php" method="post">  
+                    <h1>Adicionar Pet para adoção:</h1>    
+                               <label> Nome:</label>
+                               <input type="text" class="form-control" name="nome" placeholder="Digite o nome do seu pet" required>                  
+                                <label> Tipo:</label>
+                                <select class="selectpicker " name="especie" required>
+                                    <option value="cachorro">Cachorro</option>
+                                    <option value="gato">Gato</option>
+                                </select>
+                                <br>     
+                                <label>Raça:&nbsp;</label>
+                                <input type="text" class="form-control" name="raca" placeholder="Digite a raça" required>
+                                <label> Sexo:</label>
+                                 <select class="selectpicker" name="sexo" required>
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Feminino</option>
+                                </select>    
+                                <br>
+                                <br>
+                                <label>Adicione uma foto:</label> <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
+                                <input name="imagem" type="file"/>
+                                <label>Enviar informações</label>
+                                <input type="submit" value="Adicionar"/>
+                </form>
+            </div><!--end container -->
+    </body>
+</html>
