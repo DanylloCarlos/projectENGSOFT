@@ -32,16 +32,17 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ADOTAPETDB`.`PET` (
   `idPET` INT NOT NULL AUTO_INCREMENT,
-  `Nome ou Apelido` VARCHAR(12) NULL,
-  `Especie` VARCHAR(10) NULL,
-  `Raca` VARCHAR(16) NULL,
+  `Nome` VARCHAR(100) NULL,
+  `Especie` VARCHAR(60) NULL,
+  `Raca` VARCHAR(100) NULL,
   `Sexo` VARCHAR(6) NULL,
-  `Porte` VARCHAR(8) NULL,
+  `Porte` VARCHAR(50) NULL,
   `Idade Estimada` INT NULL,
-  `Cor da Pelagem` VARCHAR(8) NULL,
+  `Cor da Pelagem` VARCHAR(30) NULL,
   `isCastrado` TINYINT NULL,
-  `Sinais/Marcas Particulares` VARCHAR(45) NULL,
+  `Sinais/Marcas Particulares` VARCHAR(100) NULL,
   `Adotante_idAdotante` INT NOT NULL,
+  `Imagem` longblob NOT NULL, 
   PRIMARY KEY (`idPET`, `Adotante_idAdotante`),
   INDEX `fk_PET_Adotante1_idx` (`Adotante_idAdotante` ASC),
   CONSTRAINT `fk_PET_Adotante1`
